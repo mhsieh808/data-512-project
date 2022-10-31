@@ -1,5 +1,8 @@
 # DATA 512 Project Part 1: Common Analysis
 
+## Project Goal
+We want to answer the question "How did masking policies change the progression of confirmed COVID-19 cases from February 1, 2020 through October 1, 2021?"
+
 ## About the Data
 
 We use a total of 3 data sources and will be examining Cleaveland, Ohio specifically.   
