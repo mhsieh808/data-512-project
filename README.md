@@ -1,8 +1,8 @@
-# DATA 512 Project Part 4: Common Analysis
+# DATA 512 Project Part 1: Common Analysis
 
 ## About the Data
 
-We use a total of 3 data sources.   
+We use a total of 3 data sources and will be examining Cleaveland, Ohio specifically.   
 
 The first one is the [COVID-19](https://www.kaggle.com/antgoldbloom/covid19-data-from-john-hopkins-university?select=RAW_us_confirmed_cases.csv) data from John Hopkins University, which documents cumulative confirmed cases per county in the U.S since January 22nd, 2020. At the time of starting this project, data until October 29th, 2022 was used for the study. The original dataset contains attritbues listed below:
 
