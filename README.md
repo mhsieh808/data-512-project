@@ -5,7 +5,19 @@ We want to answer the question "How did masking policies change the progression 
 
 ## About the Data
 
-We use a total of 3 data sources and will be examining Cleaveland, Ohio specifically.   
+We use a total of 3 data sources and will be examining Cleaveland, Ohio specifically. 
+
+```
+County of interest: Cuyahoga, Ohio
+Land area (km^2): 1,184.12
+Land area (mi^2): 457.19
+April 1, 2020 census: 1,264,817
+July 1, 2021 estimates: 1,249,387
+County seat: Cleaveland
+FIPS: 39035
+Lat: 41.424119
+Long: -81.65918339
+```
 
 The first one is the [COVID-19](https://www.kaggle.com/antgoldbloom/covid19-data-from-john-hopkins-university?select=RAW_us_confirmed_cases.csv) data from John Hopkins University, which documents cumulative confirmed cases per county in the U.S since January 22nd, 2020. At the time of starting this project, data until October 29th, 2022 was used for the study. The original dataset contains attritbues listed below:
 
@@ -39,6 +51,10 @@ The second dataset is the [mask mandates](https://data.cdc.gov/Policy-Surveillan
 | URL| URL of order language used to complete dataset|
 | Citation|Citation for the order|
 
+Data available from 4/10/20 to 8/15/21.
+
+Note that where mask mandates are "N/A" is a time before mask mandates were recommended as a mitigation to Covid-19 spread.
+
 
 The third dataset is the [mask usage by county](https://github.com/nytimes/covid-19-data/tree/master/mask-use) data from The New York Times. The attributes and their description is listed below:
 
@@ -51,7 +67,11 @@ The third dataset is the [mask usage by county](https://github.com/nytimes/covid
 | FREQUENTLY | The estimated share of people in this county who would say frequently |  
 | ALWAYS | The estimated share of people in this county who would say always |
 
+Data obtained between July 2 and July 14, 2020.
+
 ## Attribution
+
+Charles Reinertson and Tharun Reddy suggested plotting change points for the change of infection rates using Facebook Prophet and the Ruptures library. Arik Shurygin and Charles Reinertson also showed how they preprocessed the data which greatly helped me get started with the project faster. I also got the idea to highlight the mask mandate period from Eli Corpron. I was also initially unclear about what to do for the derivative function of the change in rate of infection, but collaboration with Arik and Tharun cleared up the calculation for the rate of infection and they discussed how it would be best to apply a 7-day rolling/moving average to detect the infection rate more accurately.
 
 ## Licenses
 Datasets used for this project is licensed under [MIT](LICENSE).
