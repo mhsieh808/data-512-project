@@ -51,7 +51,7 @@ The second dataset is the [mask mandates](https://data.cdc.gov/Policy-Surveillan
 | URL| URL of order language used to complete dataset|
 | Citation|Citation for the order|
 
-Data available from 4/10/20 to 8/15/21.
+Data available from 4/10/20 to 8/15/21. This file is very large so it has been stored in a zip file and should be unzipped when used.
 
 Note that where mask mandates are "N/A" is a time before mask mandates were recommended as a mitigation to Covid-19 spread.
 
@@ -68,6 +68,26 @@ The third dataset is the [mask usage by county](https://github.com/nytimes/covid
 | ALWAYS | The estimated share of people in this county who would say always |
 
 Data obtained between July 2 and July 14, 2020.
+
+## Project Structure
+
+```
+└── data-512-project
+    ├── LICENSE
+    ├── README.md
+    ├── data
+    │   ├── mask-use-by-county.csv
+    │   ├── RAW_us_confirmed_cases.csv
+    │   └── us_public_mask_mandate.zip
+    ├── plots
+    │   ├── daily_vs_total_cases.png
+    │   └── infection_rate.png
+    ├── submissions
+    │   └── DATA 512 Project Part 1 Reflection.pdf
+    └── src
+        └──data-512-project-part1.ipynb
+
+```
 
 ## Attribution
 
