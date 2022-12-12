@@ -1,11 +1,13 @@
-# DATA 512 Project Part 1: Common Analysis
+# DATA 512 Project: COVID-19 and Mobility Analysis
 
 ## Project Goal
-We want to answer the question "How did masking policies change the progression of confirmed COVID-19 cases from February 1, 2020 through October 1, 2021?"
+In Par 1 of this project, we want to answer the question "How did masking policies change the progression of confirmed COVID-19 cases from February 1, 2020 through October 1, 2021?"
+
+To extend part 1,  we want to answer the question "How has the mask mandate affected mobility changes from February 2020 to October 2022?"
 
 ## About the Data
 
-We use a total of 3 data sources and will be examining Cleaveland, Ohio specifically. 
+We use a total of 3 data sources and will be examining Cleaveland, Ohio (Cuyahoga County) specifically. 
 
 ```
 County of interest: Cuyahoga, Ohio
@@ -68,6 +70,26 @@ The third dataset is the [mask usage by county](https://github.com/nytimes/covid
 | ALWAYS | The estimated share of people in this county who would say always |
 
 Data obtained between July 2 and July 14, 2020.
+
+The fourth data set is the [COVID-19 Mobility](https://www.google.com/covid19/mobility/) data from Google. The attributes used for the analysis and their description is listed below:
+
+| Attributes | Description |
+| --- | --- |
+| country_region_code | the country region code |   
+| country_region | the country name |   
+| sub_region_1 | State Name | 
+| sub_region_2 | County Name | 
+| census_fips_code | Census FIPS code |  
+| place_id | unique ID for the place |
+| date | date reported | 
+| retail_and_recreation_percent_change_from_baseline | percent change from baseline (January 2020) for retail and recreation locations | 
+| grocery_and_pharmacy_percent_change_from_baseline | percent change from baseline (January 2020) for grocery and pharmacy locations |  
+| parks_percent_change_from_baseline | percent change from baseline (January 2020) for park locations |
+| transit_stations_percent_change_from_baseline | percent change from baseline (January 2020) for transit locations | 
+| workplaces_percent_change_from_baseline | percent change from baseline (January 2020) for workplace locations |  
+| residential_percent_change_from_baseline | percent change from baseline (January 2020) for residential locations |
+
+Data obtained between February 1, 2020 and October 15, 2022.
 
 ## Project Structure
 
