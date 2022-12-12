@@ -1,0 +1,144 @@
+---
+title: "Cuyahoga Mobility Analysis"
+output: html_notebook
+---
+
+Reading the data in:
+```{r}
+final_df <- read.csv("COVID_Cuyahoga.csv")
+```
+
+# T-tests and Visualizations
+
+Setting up the samples for the three time periods:
+```{r}
+library(dplyr)
+before_mandate<-final_df %>% filter(date < "2020-07-01")
+during_mandate<-final_df %>% filter(date > "2020-07-01" & date < "2021-06-01")
+after_mandate<-final_df %>% filter(date > "2021-06-01")
+```
+
+## Residential
+```{r}
+t.test(before_mandate$residential_percent_change_from_baseline, during_mandate$residential_percent_change_from_baseline, var.equal = F)
+
+t.test(before_mandate$residential_percent_change_from_baseline, after_mandate$residential_percent_change_from_baseline, var.equal = F)
+
+t.test(during_mandate$residential_percent_change_from_baseline, after_mandate$residential_percent_change_from_baseline, var.equal = F)
+```
+
+## Parks
+```{r}
+t.test(before_mandate$parks_percent_change_from_baseline, during_mandate$parks_percent_change_from_baseline, var.equal = F)
+
+t.test(before_mandate$parks_percent_change_from_baseline, after_mandate$parks_percent_change_from_baseline, var.equal = F)
+
+t.test(during_mandate$parks_percent_change_from_baseline, after_mandate$parks_percent_change_from_baseline, var.equal = F)
+```
+
+## Transit Stations
+```{r}
+t.test(before_mandate$transit_stations_percent_change_from_baseline, during_mandate$transit_stations_percent_change_from_baseline, var.equal = F)
+
+t.test(before_mandate$transit_stations_percent_change_from_baseline, after_mandate$transit_stations_percent_change_from_baseline, var.equal = F)
+
+t.test(during_mandate$transit_stations_percent_change_from_baseline, after_mandate$transit_stations_percent_change_from_baseline, var.equal = F)
+```
+
+## Retail and Recreation
+```{r}
+t.test(before_mandate$retail_and_recreation_percent_change_from_baseline, during_mandate$retail_and_recreation_percent_change_from_baseline, var.equal = F)
+
+t.test(before_mandate$retail_and_recreation_percent_change_from_baseline, after_mandate$retail_and_recreation_percent_change_from_baseline, var.equal = F)
+
+t.test(during_mandate$retail_and_recreation_percent_change_from_baseline, after_mandate$retail_and_recreation_percent_change_from_baseline, var.equal = F)
+```
+
+
+## Workplaces
+```{r}
+t.test(before_mandate$workplaces_percent_change_from_baseline, during_mandate$workplaces_percent_change_from_baseline, var.equal = F)
+
+t.test(before_mandate$workplaces_percent_change_from_baseline, after_mandate$workplaces_percent_change_from_baseline, var.equal = F)
+
+t.test(during_mandate$workplaces_percent_change_from_baseline, after_mandate$workplaces_percent_change_from_baseline, var.equal = F)
+```
+
+
+## Grocery and Pharmacy
+```{r}
+t.test(before_mandate$grocery_and_pharmacy_percent_change_from_baseline, during_mandate$grocery_and_pharmacy_percent_change_from_baseline, var.equal = F)
+
+t.test(before_mandate$grocery_and_pharmacy_percent_change_from_baseline, after_mandate$grocery_and_pharmacy_percent_change_from_baseline, var.equal = F)
+
+t.test(during_mandate$grocery_and_pharmacy_percent_change_from_baseline, after_mandate$grocery_and_pharmacy_percent_change_from_baseline, var.equal = F)
+```
+
+Plotting Time Series Analysis:
+
+## Residential Mobility
+```{r}
+library(ggplot2)
+
+final_df$date<-as.Date(final_df$date)
+
+ggplot(final_df, aes(x = date, y = residential_percent_change_from_baseline)) + geom_line(color = "blue") + scale_x_date(breaks = seq(as.Date("2020-02-15"), as.Date("2022-10-15"), by="3 months"), date_labels = "%b %Y")+
+theme(axis.text.x=element_text(angle=60, hjust=1)) +
+  annotate("rect", fill = "orange", alpha = 0.3, 
+        xmin = as.Date("2020-06-01"), xmax = as.Date("2021-07-01"),
+        ymin = -Inf, ymax = Inf) +xlab("Date") + ylab("Percentage Change") + ggtitle("Residential Percentage Change in Mobility")
+```
+## Parks Mobility
+
+```{r}
+ggplot(final_df, aes(x = date, y = parks_percent_change_from_baseline)) + geom_line(color = "blue") + scale_x_date(breaks = seq(as.Date("2020-02-15"), as.Date("2022-10-15"), by="3 months"), date_labels = "%b %Y")+
+theme(axis.text.x=element_text(angle=60, hjust=1)) +
+  annotate("rect", fill = "orange", alpha = 0.3, 
+        xmin = as.Date("2020-06-01"), xmax = as.Date("2021-07-01"),
+        ymin = -Inf, ymax = Inf) +xlab("Date") + ylab("Percentage Change") + ggtitle("Parks Percentage Change in Mobility")
+```
+
+
+## Transit Stations
+
+```{r}
+ggplot(final_df, aes(x = date, y = transit_stations_percent_change_from_baseline)) + geom_line(color = "blue") + scale_x_date(breaks = seq(as.Date("2020-02-15"), as.Date("2022-10-15"), by="3 months"), date_labels = "%b %Y")+
+theme(axis.text.x=element_text(angle=60, hjust=1)) +
+  annotate("rect", fill = "orange", alpha = 0.3, 
+        xmin = as.Date("2020-06-01"), xmax = as.Date("2021-07-01"),
+        ymin = -Inf, ymax = Inf) +xlab("Date") + ylab("Percentage Change") + ggtitle("Transit Stations Percentage Change in Mobility")
+```
+
+
+## Retail and Recreation
+
+```{r}
+ggplot(final_df, aes(x = date, y = retail_and_recreation_percent_change_from_baseline)) + geom_line(color = "blue") + scale_x_date(breaks = seq(as.Date("2020-02-15"), as.Date("2022-10-15"), by="3 months"), date_labels = "%b %Y")+
+theme(axis.text.x=element_text(angle=60, hjust=1)) +
+  annotate("rect", fill = "orange", alpha = 0.3, 
+        xmin = as.Date("2020-06-01"), xmax = as.Date("2021-07-01"),
+        ymin = -Inf, ymax = Inf) +xlab("Date") + ylab("Percentage Change") + ggtitle("Retail and Recreation Percentage Change in Mobility")
+```
+
+
+## Workplaces
+
+```{r}
+ggplot(final_df, aes(x = date, y = workplaces_percent_change_from_baseline)) + geom_line(color = "blue") + scale_x_date(breaks = seq(as.Date("2020-02-15"), as.Date("2022-10-15"), by="3 months"), date_labels = "%b %Y")+
+theme(axis.text.x=element_text(angle=60, hjust=1)) +
+  annotate("rect", fill = "orange", alpha = 0.3, 
+        xmin = as.Date("2020-06-01"), xmax = as.Date("2021-07-01"),
+        ymin = -Inf, ymax = Inf) +xlab("Date") + ylab("Percentage Change") + ggtitle("Workplaces Percentage Change in Mobility")
+```
+
+
+## Grocery and Pharmacy
+
+```{r}
+ggplot(final_df, aes(x = date, y = grocery_and_pharmacy_percent_change_from_baseline)) + geom_line(color = "blue") + scale_x_date(breaks = seq(as.Date("2020-02-15"), as.Date("2022-10-15"), by="3 months"), date_labels = "%b %Y")+
+theme(axis.text.x=element_text(angle=60, hjust=1)) +
+  annotate("rect", fill = "orange", alpha = 0.3, 
+        xmin = as.Date("2020-06-01"), xmax = as.Date("2021-07-01"),
+        ymin = -Inf, ymax = Inf) +xlab("Date") + ylab("Percentage Change") + ggtitle("Grocery and Pharmacy Percentage Change in Mobility")
+```
+
