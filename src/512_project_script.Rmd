@@ -1,0 +1,37 @@
+---
+title: "US Region Mobility Data Cleaning"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+Joining together the US Regional Mobility data from 2020, 2021, and 2022.
+
+```{r}
+
+df_2020<-read.csv("2020_US_Region_Mobility_Report.csv")
+df_2021<-read.csv("2021_US_Region_Mobility_Report.csv")
+df_2022<-read.csv("2022_US_Region_Mobility_Report.csv")
+
+df2<-merge(df_2020, df_2021, all = T)
+df<-merge(df2, df_2022, all = T)
+```
+
+Dropping columns that are not necessary and writing final df to a csv file.
+```{r}
+library(dplyr)
+
+final_df<-df %>% filter(sub_region_2=="Cuyahoga County")
+final_df<-final_df[-c(5:6)]
+head(final_df)
+write.csv(final_df, file = "COVID_Cuyahoga.csv")
+```
+
+
+
+
+
