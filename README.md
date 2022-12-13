@@ -75,8 +75,8 @@ The fourth data set is the [COVID-19 Mobility](https://www.google.com/covid19/mo
 
 | Attributes | Description |
 | --- | --- |
-| country_region_code | the country region code |   
-| country_region | the country name |   
+| country_region_code | Country region code |   
+| country_region | Country name |   
 | sub_region_1 | State Name | 
 | sub_region_2 | County Name | 
 | census_fips_code | Census FIPS code |  
@@ -98,16 +98,36 @@ Data obtained between February 1, 2020 and October 15, 2022.
     ├── LICENSE
     ├── README.md
     ├── data
+    │   ├── COVID_Cuyahoga.csv
+    │   ├── Region_Mobility_Report_CSVs.zip
     │   ├── mask-use-by-county.csv
     │   ├── RAW_us_confirmed_cases.csv
     │   └── us_public_mask_mandate.zip
     ├── plots
     │   ├── daily_vs_total_cases.png
+    │   ├── grocery_and_pharm.png
+    │   ├── parks.png  
+    │   ├── workplaces.png
+    │   ├── transit_stations.png
+    │   ├── residential.png
+    │   ├── retail_and_rec.png
     │   └── infection_rate.png
-    ├── submissions
-    │   └── DATA 512 Project Part 1 Reflection.pdf
+    ├── A4
+    │   ├── README.md
+    │   ├── DATA 512 Project Part 1 Reflection.pdf
+    │   ├── daily_vs_total_cases.png
+    │   └── infection_rate.png
+    ├── A5
+    │   └── DATA 512 Project Part2.docx
+    ├── A6
+    │   └── DATA 512 Presentation.pptx
+    ├── A7
+    │   └── DATA512-Final Report.docx
     └── src
-        └──data-512-project-part1.ipynb
+        ├── 512_project_script.rmd 
+        ├── Cuyahoga_Mobility_Analysis.rmd
+        ├── Cuyahoga_Mobility_Analysis.nb.html
+        └── data-512-project-part1.ipynb
 
 ```
 
@@ -123,3 +143,5 @@ The COVID-19 data is licensed under [Attribution 4.0 International](https://crea
 As per [Q&A section](https://www.cdc.gov/Other/policies.html) in CDC, the second dataset is in the public domain and may be freely used or reproduced without obtaining copyright permission. 
 
 According to the [linking and copyright information](https://www.bls.gov/bls/linksite.htm), the third dataset is in the public domain and is free to be used without specific permission but required to cite the U.S. Bureau of Labor Statistics as a source.
+
+To use the Google Mobility datset, the terms linked must be followed: https://policies.google.com/terms?hl=en
