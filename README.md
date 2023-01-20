@@ -1,7 +1,7 @@
 # DATA 512 Project: COVID-19 and Mobility Analysis
 
 ## Project Goal
-In Par 1 of this project, we want to answer the question "How did masking policies change the progression of confirmed COVID-19 cases from February 1, 2020 through October 1, 2021?"
+In Part 1 of this project, we want to answer the question "How did masking policies change the progression of confirmed COVID-19 cases from February 1, 2020 through October 1, 2021?"
 
 To extend part 1,  we want to answer the question "How has the mask mandate affected mobility changes from February 2020 to October 2022?"
 
